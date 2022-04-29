@@ -56,6 +56,8 @@ if __name__ == '__main__':
         elif operation == 'predict':
             predictions, realities = mgr.predict_model(override_args=hyperparameters)
             fs = 5
+            if not quiet:
+                print(f'> plotting {fs} example features forecasted by GRU together with ground truth.')
             fig, axs = plt.subplots(fs, figsize=(15, 15))
             for i in range(0, fs):
                 p = predictions[:, i]
